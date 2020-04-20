@@ -1,0 +1,100 @@
+.status--1 {
+  background-color: #dd02fd;	// 无法连接网关
+}
+
+.status-0 {
+  background-color: #255a85;	// 上电停机
+}
+
+.status-1 {
+  background-color: #5cb85c;	// 设备启动中
+}
+
+.status-2 {
+  background-color: #5cb85c;	// 设备运行
+}
+
+.status-3 {
+  background-color: #5cb85c;	// 设备停机中
+}
+
+.status-4 {
+  background-color: #337ab7;	// 设备停机
+}
+
+.status-5 {
+  background-color: #337ab7;	// 设备待机
+}
+
+.status-6 {
+  background-color: #CCCCCC;	// 设备离线
+}
+
+.status-7 {
+  background-color: #CCCCCC;	// 保留
+}
+
+.status-8 {
+  background-color: #CCCCCC;	// 保留2
+}
+
+.status-9 {
+  background-color: #CCCCCC;	// 保留3
+}
+
+.status-10 {
+  background-color: #CCCCCC;	// 正常
+}
+
+.status-11 {
+  background-color: #FF4040;	// 故障 >=11
+}
+
+.font-0 {
+  color: #1209fd;               // 信息
+}
+
+.font-1 {
+  color: #ca7404;               // 警告
+}
+
+.font-2 {
+  color: #ff200b;               // 故障
+}
+
+.font-3 {
+  color: #5cb85c;
+}
+
+.font-4 {
+  color: #337ab7;
+}
+
+.font-5 {
+  color: #337ab7;
+}
+
+.font-6 {
+  color: #CCCCCC;
+}
+
+.font-7 {
+  color: #CCCCCC;
+}
+
+.font-8 {
+  color: #CCCCCC;
+}
+
+.font-9 {
+  color: #CCCCCC;
+}
+
+.font-10 {
+  color: #CCCCCC;
+}
+
+.font-10 {
+  color: #FF4040;
+}
+

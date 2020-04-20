@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="jm-cloud v3.0">
+    <meta name="author" content="zhang-zi-ang">
+    <meta name="robots" content="all,follow">
+
+    <title>锦马智能信息化系统</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap_4.2.1/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/vendor/others/css/ie10-viewport-bug-workaround.css"
+          rel="stylesheet">
+
+    <!--模板用css-->
+    <link rel="stylesheet" href="/vendor/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/fontastic.css">
+
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="/css/style.sea.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <link rel="shortcut icon" href="/vendor/others/img/jingma.png">
+
+    <!-- 自定义模板样式 -->
+    <link href="/css/dashboard.css" rel="stylesheet">
+    <link href="/css/status.css" rel="stylesheet">
+    <link href="/css/tables.css" rel="stylesheet">
+
+<!--    ng-table样式表-->
+    <link href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css" rel="stylesheet">
+
+<!--    时间选择器样式表-->
+    <link href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" rel="stylesheet">
+<!--    ==================================================-->
+</head>
+
+<body>
+<h1>登陆</h1>
+<div class="page login-page">
+    <div class="container">
+        <div class="form-outer text-center d-flex align-items-center">
+            <div class="form-inner">
+                <div class="logo text-uppercase"><strong class="text-primary">锦马智能云平台</strong></div>
+                <p>浙江锦马自动化科技有限公司是专业制造纺织装备智能控制系统的公司，主要生产、研发智能控制系统。智能制造助力制造业转型升级是我们的使命。</p>
+
+                <form role="form" method="post" action="/login" class="text-left form-validate">
+
+                    <div class="form-group-material">
+                        <input id="username" type="text" name="username" required data-msg="请输入账号" class="input-material" pattern="[A-Za-z0-9_\\-\\u4e00-\\u9fa5]+">
+                        <label for="username" class="label-material">账号</label>
+                    </div>
+
+                    <div class="form-group-material">
+                        <input id="password" type="password" name="password" required data-msg="请输入密码" class="input-material" pattern="[A-Za-z0-9_\\-\\u4e00-\\u9fa5]+">
+                        <label for="password" class="label-material">密码</label>
+                    </div>
+
+                    <div class="text-center">
+                        <label><input type="checkbox" name="remember-me" value="on"/>自动登录</label>
+                    </div>
+                    <div class="form-group text-center">
+
+                        <button type="submit"
+                                class="btn btn-primary">
+                            <!-- <i class="ace-icon fa fa-key"></i> -->
+                            <a>登 录</a>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="copyrights text-center">
+                <p>Copyright &copy; 2020.浙江锦马 All rights reserved.
+                    <br>
+                    <a target="_blank" >联系我们</a>
+<!--                    <a target="_blank" href="http://www.baidu.com">联系我们</a>-->
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--JavaScript 放于页面底部，提升加载效率（优先使用在线版本）-->
+<!--==================================================-->
+<!-- HTML5 兼容性插件 -->
+<!--解决ie9以下浏览器对html5新增标签的不识别，并导致CSS不起作用的问题-->
+<script type="text/javascript" src="https://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<!--让不支持css3 Media Query的浏览器包括IE6-IE8等其他浏览器支持查询-->
+<script type="text/javascript" src="https://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+<!--IE10 视觉兼容性处理样式表-->
+<script type="text/javascript"
+        src="https://v3.bootcss.com/assets/js/ie-emulation-modes-warning.js"></script>
+<script type="text/javascript"
+        src="https://v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+<script type="text/javascript"
+        src="/vendor/jquery/jquery.min.js"></script>
+
+<script type="text/javascript"
+        src="/vendor/echarts/3.2.3/echarts.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script type="text/javascript"
+        src="/vendor/others/js/ie10-viewport-bug-workaround.js"></script>
+
+<!--模板用JS-->
+<script type="text/javascript"
+        src="vendor/popper.js/popper.min.js"></script>
+<script type="text/javascript"
+        src="vendor/bootstrap_4.2.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+<script type="text/javascript"
+        src="/vendor/jquery.cookie/jquery.cookie.js"></script>
+<script type="text/javascript"
+        src="/vendor/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript"
+        src="/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript"
+        src="/js/front.js"></script>
+
+<script src="vendor/others/js/scripts.js"></script>
+
+</body>
+</html>
