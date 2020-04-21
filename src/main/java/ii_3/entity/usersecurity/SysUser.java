@@ -1,4 +1,4 @@
-package ii_3.entity;
+package ii_3.entity.usersecurity;
 
 import java.io.Serializable;
 

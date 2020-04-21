@@ -1,7 +1,7 @@
-package ii_3.service;
+package ii_3.service.usersecurity;
 
-import ii_3.entity.SysRole;
-import ii_3.mapper.SysRoleMapper;
+import ii_3.entity.usersecurity.SysRole;
+import ii_3.mapper.usersecurity.SysRoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package ii_3.web;
+package ii_3.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,11 +22,17 @@ public class LoginController {
         String name = SecurityContextHolder.getContext().getAuthentication().getName();
         logger.info("当前登陆用户：" + name);
 
-        return "home.html";
+        return "index.html";
+//        return "home.html";
     }
 
     @RequestMapping("/login")
     public String showLogin() {
+        return "login.html";
+    }
+
+    @RequestMapping("/logout")
+    public String logout() {
         return "login.html";
     }
 

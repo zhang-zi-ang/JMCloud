@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="robots" content="all,follow">
+
+    <title>锦马智能信息化系统</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap_4.2.1/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/vendor/others/css/ie10-viewport-bug-workaround.css"
+          rel="stylesheet">
+
+    <!--模板用css-->
+    <link rel="stylesheet" href="/vendor/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/fontastic.css">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="/css/style.sea.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <link rel="shortcut icon" href="/vendor/others/img/jingma.png">
+
+    <!-- 自定义模板样式 -->
+    <link href="/css/dashboard.css" rel="stylesheet">
+    <link href="/css/status.css" rel="stylesheet">
+    <link href="/css/tables.css" rel="stylesheet">
+
+    <!--ng-table样式表-->
+    <link href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css" rel="stylesheet">
+    <!--时间选择器样式表-->
+    <link href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!--==================================================-->
+
+</head>
+
+<body ng-app="statusApp">
+
+<nav class="side-navbar d-none d-md-block" >
+    <div class="side-navbar-wrapper">
+        <!-- Sidebar Header    -->
+        <div class="sidenav-header d-flex align-items-center justify-content-center">
+            <!-- User Info-->
+            <div class="sidenav-header-inner text-center">
+                <h2 class="h5">你好</h2><span></span>
+            </div>
+            <!-- Small Brand information, appears on minimized sidebar-->
+            <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center">
+                <strong>J</strong><strong class="text-primary">M</strong></a></div>
+            <!--<div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>-->
+        </div>
+        <!-- Sidebar Navigation Menus-->
+        <div class="main-menu">
+            <h5 class="sidenav-heading">总览</h5>
+            <ul id="side-main-menu" class="side-menu list-unstyled">
+                <li class="active"><a href="index.html"> <i class="fa fa-th"></i>设备状态</a></li>
+                <li><a href="pages/events_check.html"> <i class="fa fa-warning"></i>设备事件</a></li>
+                <li><a href="pages/product_check.html"> <i class="fa fa-bar-chart"></i>数据统计</a></li>
+            </ul>
+        </div>
+        <div class="admin-menu">
+            <h5 class="sidenav-heading">管理</h5>
+            <ul id="side-admin-menu" class="side-menu list-unstyled">
+                <li><a href="admin/management.html"> <i class="fa fa-cog" aria-hidden="true"> </i>管理</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="page">
+    <!--上方导航 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container-fluid d-none d-md-block">
+                <div class="navbar-holder d-flex align-items-center justify-content-between">
+                    <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i
+                            class="icon-bars"> </i></a><a href="index.html" class="navbar-brand">
+                        <div class="brand-text d-none d-md-inline-block"><strong
+                                class="text-primary">锦马云平台</strong><span>&nbsp;&nbsp;&nbsp;&nbsp;ver 2.0.0</span></div>
+                    </a></div>
+                    <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                        <!-- Log out-->
+                        <li class="nav-item"><a href="/login.html" class="nav-link logout"> <span
+                                class="d-none d-sm-inline-block">帮助</span><i class="fa fa-info-circle"></i></a></li>
+                        <li class="nav-item"><a href="/logout" class="nav-link logout"> <span
+                                class="d-none d-sm-inline-block">注销</span><i class="fa fa-sign-out"></i></a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 面包屑导航-->
+    <div class="breadcrumb-holder">
+        <div class="container-fluid">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item active"><a href="#">总览</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section>
+        <div class="container-fluid">
+            <br>
+            <!-- Page Header-->
+            <div class="row" ng-controller="statusController as statusCtrl">
+                <div class="col-12">
+                    <div class="card" >
+                        <div class="card-header">
+                            <h4>设备状态</h4>
+                        </div>
+
+                        <div class="card-body">
+                            <table class="col-12">
+                                <tr>
+                                    <td class="label status-{{0}}";>
+                                        <font color="white" style="font-size: 14px;">停机(台) : <span
+                                                class="display: block;"
+                                                ng-bind="statusCtrl.status.stopped"></span>
+                                        </font>
+                                    </td>
+
+                                    <td class="label status-{{1}} ">
+                                        <font color="white" style="font-size: 14px;">运行(台) : <span
+                                                class="display: block;"
+                                                ng-bind="statusCtrl.status.running"></span>
+                                        </font>
+                                    </td>
+
+                                    <td class="label status-{{11}} ">
+                                        <font color="white" style="font-size: 14px;">故障(台) : <span
+                                                class="display: block;"
+                                                ng-bind="statusCtrl.status.fault"></span>
+                                        </font>
+                                    </td>
+
+                                    <td class="label status-{{10}} ">
+                                        <font color="white" style="font-size: 14px;">其他(台) : <span
+                                                class="display: block;"
+                                                ng-bind="statusCtrl.status.unknown"></span>
+                                        </font>
+                                    </td>
+
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>设备详情</h4>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="row col-12">
+                                <div class="col-6 col-sm-3 mb-2" ng-repeat="equipment in equipmentCtrl.equipments">
+
+									<span data-toggle="modal"
+                                          data-target="#equipment-info"
+                                          ng-click="equipmentCtrl.ViewEquipment(equipment.equipmentId)"
+                                          class="label status-{{equipment.equipmentStatus}}"
+                                          style=" width: 100%;display: block;">
+
+									<font ng-bind="equipment.equipmentName"
+                                          style="font-size:15px;color: #000000;"></font>
+									</span>
+
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-warning progress-bar-striped active"
+                                             role="progressbar" aria-valuenow="{{equipment.taskCompletion/10}}"
+                                             aria-valuemin="0"
+                                             aria-valuemax="100" style="width: {{equipment.taskCompletion/10}}%;">
+                                            <span><font color="black">{{equipment.taskCompletion/10}}%</font></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer col-12">
+                            <nav style="text-align: right;">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <a class="page-link" ng-click="equipmentCtrl.Previous(equipmentCtrl.pageList.previousPage)">
+                                            <span>«</span>
+                                        </a>
+                                    </li>
+                                    <!-- ng-class="{active: prCtrl.isActivePage(page)}" -->
+                                    <li class="page-item" ng-repeat="page in equipmentCtrl.pageList.pageBar"
+                                        ng-class="{active: equipmentCtrl.isActivePage(page)}">
+                                        <a class="page-link" ng-click="equipmentCtrl.clickNum(page)" ng-bind="page"></a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" ng-click="equipmentCtrl.Next(equipmentCtrl.pageList.nextPage)">
+                                            <span>»</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="modal" id="equipment-info">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">设备详细信息</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th width="40%">设备编号</th>
+                                                <th width="30%">设备名称</th>
+                                                <th width="30%">设备状态</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td ng-bind="equipmentCtrl.equipment.equipmentId"></td>
+                                                <td ng-bind="equipmentCtrl.equipment.equipmentName"></td>
+                                                <td ng-bind="equipmentCtrl.equipment.statusCN"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th width="40%">
+                                                    项目
+                                                </th>
+                                                <th width="30%">
+                                                    设定值
+                                                </th>
+                                                <th width="30%">
+                                                    实际值
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    锭速 (rpm)
+                                                </td>
+                                                <td ng-bind="equipmentCtrl.equipment.equipmentBasicInfo.twistRpmSet">
+
+                                                </td>
+                                                <td ng-bind="equipmentCtrl.equipment.equipmentBasicInfo.twistRpm">
+
+                                                </td>
+                                            </tr>
+                                            <tr class="success">
+                                                <td>
+                                                    卷绕速度 (m/min)
+                                                </td>
+                                                <td ng-bind="equipmentCtrl.equipment.equipmentBasicInfo.windSpdSet/100 | number : 2">
+
+                                                </td>
+                                                <td ng-bind="equipmentCtrl.equipment.equipmentBasicInfo.windSpd/100 | number : 2">
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    捻度 (T/m)
+                                                </td>
+                                                <td ng-bind="equipmentCtrl.equipment.equipmentBasicInfo.twistSet">
+
+                                                </td>
+                                                <td ng-bind="equipmentCtrl.equipment.equipmentBasicInfo.twist">
+
+                                                </td>
+                                            </tr>
+                                            <!--<tr class="warning">-->
+                                            <!--<td>-->
+                                            <!--横动行程       (mm)-->
+                                            <!--</td>-->
+                                            <!--<td ng-bind="equipmentCtrl.equipment.equipmentConfigure.initialTraverseTravel/10 | number : 1">-->
+                                            <!---->
+                                            <!--</td>-->
+                                            <!--<td ng-bind="equipmentCtrl.equipment.equipmentStatus.currentTraversingWidth/10 | number : 1">-->
+                                            <!---->
+                                            <!--</td>-->
+                                            <!--</tr>-->
+                                            <tr class="warning">
+                                                <td>
+                                                    纱线定长 (m)
+                                                </td>
+                                                <td ng-bind="equipmentCtrl.equipment.equipmentBasicInfo.yarnLenSet">
+
+                                                </td>
+                                                <td ng-bind="(equipmentCtrl.equipment.equipmentBasicInfo.yarnLen)/10">
+
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    加捻方向 Z/S
+                                                </td>
+                                                <td>
+                                                    <span ng-if="equipmentCtrl.equipment.equipmentBasicInfo.twistDir=1">S</span>
+                                                    <span ng-if="equipmentCtrl.equipment.equipmentBasicInfo.twistDir==0">Z</span>
+                                                </td>
+                                                <td>
+                                                    <span ng-if="equipmentCtrl.equipment.equipmentBasicInfo.twistDir==1">S</span>
+                                                    <span ng-if="equipmentCtrl.equipment.equipmentBasicInfo.twistDir==0">Z</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="danger">
+                                                <td>工艺时间</td>
+                                                <td ng-bind="((equipmentCtrl.equipment.equipmentBasicInfo.taskTime/3600)/24 | number : 0)+ '天' +
+											((equipmentCtrl.equipment.equipmentBasicInfo.taskTime/3600)%24 | number : 0) + '时'+
+											((equipmentCtrl.equipment.equipmentBasicInfo.taskTime%3600)/60 | number : 0)+ '分（实际）'
+											">
+                                                </td>
+                                                <td ng-bind="((equipmentCtrl.equipment.equipmentBasicInfo.remTime/3600)/24 | number : 0)+ '天' +
+											((equipmentCtrl.equipment.equipmentBasicInfo.remTime/3600)%24 | number : 0) + '时'+
+											((equipmentCtrl.equipment.equipmentBasicInfo.remTime%3600)/60 | number : 0)+ '分（剩余）'
+											"></td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">关闭
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- /edit.modal-content -->
+                            </div>
+                            <!-- /edit.modal-dialog -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container-fluid d-md-none">
+        <br>
+        <br>
+        <br>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center" >
+                    <p>Copyright &copy; 2020.浙江锦马 All rights reserved.
+                        <br>
+                        <a target="_blank" href="http://www.baidu.com">&nbsp;&nbsp;&nbsp;&nbsp;联系我们</a>
+                    </p>
+                    <div class="container-fluid d-md-none">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="container-fluid d-md-none ">
+        <nav class="bg-dark navbar-dark fixed-bottom ">
+            <ul class="nav nav-pills nav-justified small text-nowrap">
+
+                <li class="nav-item">
+                    <a class="nav-link active" style="border-Radius: 0px;" href="#"><i class="fa fa-th"></i><br>总览</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="border-Radius: 0px;" href="pages/events_check.html"><i class="fa fa-warning"></i><br>事件</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="border-Radius: 0px;" href="pages/product_check.html"><i class="fa fa-bar-chart"></i><br>统计</a>
+                </li>
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link " style="border-Radius: 0px;" href="admin/user_management.html"><i class="fa fa-users"></i><br>人员</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link" style="border-Radius: 0px;" href="admin/equip_management.html"><i class="icon-screen"></i><br>设备</a>-->
+                <!--</li>-->
+                <li class="nav-item">
+                    <a class="nav-link " style="border-Radius: 0px;" href="admin/management.html"><i class="fa fa-cog" aria-hidden="true"></i><br>管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " style="border-Radius: 0px;" href="/logout"><i class="fa fa-sign-out"></i><br>注销</a>
+<!--                    <a class="nav-link " style="border-Radius: 0px;" href="login/loginIndex.jsp"><i class="fa fa-sign-out"></i><br>注销</a>-->
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+<!--JavaScript 放于页面底部，提升加载效率（优先使用在线版本）-->
+<!--==================================================-->
+<!-- HTML5 兼容性插件 -->
+<!--解决ie9以下浏览器对html5新增标签的不识别，并导致CSS不起作用的问题-->
+<script type="text/javascript" src="https://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<!--让不支持css3 Media Query的浏览器包括IE6-IE8等其他浏览器支持查询-->
+<script type="text/javascript" src="https://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+<!--IE10 视觉兼容性处理样式表-->
+<script type="text/javascript"
+        src="https://v3.bootcss.com/assets/js/ie-emulation-modes-warning.js"></script>
+<script type="text/javascript"
+        src="https://v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+<script type="text/javascript"
+        src="/vendor/jquery/jquery.min.js"></script>
+
+<script type="text/javascript"
+        src="/vendor/echarts/3.2.3/echarts.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script type="text/javascript"
+        src="/vendor/others/js/ie10-viewport-bug-workaround.js"></script>
+
+<!--模板用JS-->
+<script type="text/javascript"
+        src="vendor/popper.js/popper.min.js"></script>
+<script type="text/javascript"
+        src="vendor/bootstrap_4.2.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+<script type="text/javascript"
+        src="/vendor/jquery.cookie/jquery.cookie.js"></script>
+<script type="text/javascript"
+        src="/vendor/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript"
+        src="/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript"
+        src="/js/front.js"></script>
+
+<!--echart所需插件，依赖于bootstrap-->
+<script type="text/javascript"
+        src="https://cdn.bootcss.com/echarts/3.2.3/echarts.min.js"></script>
+
+<!--angular JS插件-->
+<script type="text/javascript"
+        src="https://cdn.bootcss.com/angular.js/1.5.7/angular.min.js"></script>
+
+<!--ng-table表格插件，依赖于angular JS-->
+<script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+
+<!--时间格式化插件-->
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<!--daterangepicker日期选择器插件，依赖于时间格式化插件-->
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js "></script>
+<!--daterangepicker插件配置函数-->
+<script type="text/javascript">
+    $(function () {
+        $('input[name="DateRange"]').daterangepicker({
+            ranges: {
+                '最近7日': [moment().subtract(7, 'days').startOf('day'), moment().endOf('day')],
+                '最近15日': [moment().subtract(15, 'days').startOf('day'), moment().endOf('day')],
+                '本周': [moment().startOf('isoWeek'), moment().endOf('isoWeek')],
+                '上一周': [moment().subtract(1, 'isoWeek').startOf('isoWeek'), moment().subtract(1, 'isoWeek').endOf('isoWeek')],
+                '本月': [moment().startOf('month'), moment().endOf('month')],
+                '上个月': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            },
+            "locale": {
+                "format": "YYYY/MM/DD",
+                "separator": " - ",
+                "applyLabel": "确认",
+                "cancelLabel": "取消",
+                "fromLabel": "起始日期",
+                "toLabel": "结束日期",
+                "customRangeLabel": "其他",
+                "weekLabel": "W",
+                "daysOfWeek": [
+                    "日",
+                    "一",
+                    "二",
+                    "三",
+                    "四",
+                    "五",
+                    "六"
+                ],
+                "monthNames": [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7",
+                    "8",
+                    "9",
+                    "10",
+                    "11",
+                    "12"
+                ],
+                "firstDay": 1
+            },
+            "alwaysShowCalendars": true,
+            "showDropdowns": true,
+            "minYear": 2015,
+            "maxYear": 2050,
+            "startDate": moment().subtract(7, 'days').startOf('day'),
+            "endDate": moment().endOf('day')
+
+        }, function (start, end, label) {
+            //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+        });
+    });
+</script>
+
+<!--项目内部服务相关脚本-->
+<script type="text/javascript"
+        src="resources/custom/js/status/status.js"></script>
+
+</body>
+</html>

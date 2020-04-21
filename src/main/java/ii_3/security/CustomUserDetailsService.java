@@ -1,11 +1,11 @@
 package ii_3.security;
 
-import ii_3.entity.SysRole;
-import ii_3.entity.SysUser;
-import ii_3.entity.SysUserRole;
-import ii_3.service.SysRoleService;
-import ii_3.service.SysUserRoleService;
-import ii_3.service.SysUserService;
+import ii_3.entity.usersecurity.SysRole;
+import ii_3.entity.usersecurity.SysUser;
+import ii_3.entity.usersecurity.SysUserRole;
+import ii_3.service.usersecurity.SysRoleService;
+import ii_3.service.usersecurity.SysUserRoleService;
+import ii_3.service.usersecurity.SysUserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

@@ -1,6 +1,6 @@
-package ii_3.mapper;
+package ii_3.mapper.usersecurity;
 
-import ii_3.entity.SysRole;
+import ii_3.entity.usersecurity.SysRole;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
