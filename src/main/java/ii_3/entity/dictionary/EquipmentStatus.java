@@ -7,10 +7,10 @@ package ii_3.entity.dictionary;
  * @Modified By:
  */
 public class EquipmentStatus {
-    private int statusId;
-    private String statusName;
-    private String statusCN;
-    private String statusEN;
+    private int statusId;           // 状态码
+    private String statusName;      // 状态标识名
+    private String statusCN;        // 状态中文名
+    private String statusEN;        // 状态英文名
 
     public EquipmentStatus() {
         super();

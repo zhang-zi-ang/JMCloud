@@ -9,16 +9,16 @@ import java.sql.Timestamp;
  * @Modified By:
  */
 public class EquipmentBasicInfo {
-    private int equipmentId;//设备ID
-    private String equipmentName;//设备名称（用户自定的名称）
-    private String equipmentType;//设备类型（String）
-    private String ipAddress;//IP地址
-    private int port;//端口号
-    private int unitIdentifier;//身份识别？我也不知道，暂时保留
-    private String workshop;//车间名称（String）
-    private String isActived;//设备是否激活（已废弃）
-    private Timestamp createdTime;//设备创建时间戳
-    private Timestamp modifiedTime;//设备修改时间戳
+    private int equipmentId;               // 设备ID
+    private String equipmentName;          // 设备名称（用户自定的名称）
+    private String equipmentType;          // 设备类型（String）
+    private String ipAddress;              // IP地址
+    private int port;                      // 端口号
+    private int unitIdentifier;            // 身份识别？我也不知道，暂时保留
+    private String workshop;               // 车间名称（String）
+    private String isActived;              // 设备是否激活（已废弃）
+    private Timestamp createdTime;         // 设备创建时间戳
+    private Timestamp modifiedTime;        // 设备修改时间戳
 
     //无参构造函数
     public EquipmentBasicInfo() {

@@ -35,8 +35,8 @@ import java.util.Calendar;
  */
 
 public class EquipmentSetingInfo {
-    private int equipmentId;//设备ID
-    private Timestamp modifiedTime;//收到配置信息时的时间戳
+    private int equipmentId;                    // 设备ID
+    private Timestamp modifiedTime;             // 收到配置信息时的时间戳
 
     private int deviceType;						/*!< 1, 设备类型, 1: 倍捻机 .. */
     private int opt1;							/*!< 2, Option 1 */

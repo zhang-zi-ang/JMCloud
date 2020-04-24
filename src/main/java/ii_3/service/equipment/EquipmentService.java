@@ -22,12 +22,10 @@ public class EquipmentService {
     private EquipmentMapper equipmentMapper;
 
     public List<EquipmentBasicInfo> getAllEquipBasicInfo() {
-        System.out.println(equipmentMapper.getAllEquipBasicInfo());
         return equipmentMapper.getAllEquipBasicInfo();
     }
 
     public List<EquipmentSetingInfo> getAllEquipmentSetingInfo() {
-        System.out.println(equipmentMapper.getAllEquipBasicInfo());
         return equipmentMapper.getAllEquipmentSetingInfo();
     }
 }

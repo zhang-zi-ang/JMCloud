@@ -21,7 +21,7 @@ statusApp.controller('statusController', ['$interval','$http', function($interva
         self.status = getEquipmentStatus(self.equipments);
     }, function(errResponse) {
         console.error('Error while fetching equipments');
-    })},60000);
+    })},6000);
 
 
 

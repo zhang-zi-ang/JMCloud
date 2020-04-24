@@ -1,7 +1,5 @@
 package ii_3.entity.equipment;
 
-import java.sql.Timestamp;
-
 /**
  * @Author: zhang-zi-ang
  * @Date: Created in 2020/4/21 17:27
@@ -10,21 +8,32 @@ import java.sql.Timestamp;
  * @Modified By:
  */
 public class Equipment {
-    private int equipmentId;//设备ID
-    private String equipmentName;//设备名称
-    private String equipmentType;//设备类型
-    private String equipmentStatus;//设备状态
 
-    private EquipmentBasicInfo equipmentBasicInfo;
-    private EquipmentSetingInfo equipmentSetingInfo;
+    private int equipmentId;                            // 设备ID
+    private String equipmentName;                       // 设备名称
+    private String equipmentType;                       // 设备类型
+    private String equipmentStatus;                     // 设备状态
 
+    private EquipmentBasicInfo equipmentBasicInfo;      // 设备基本信息
+    private EquipmentSetingInfo equipmentSetingInfo;    // 设备的配置信息
+
+    //构造方法：设备ID
+    public Equipment(int equipmentId) {
+        this.equipmentId = equipmentId;
+    }
+
+    //构造方法：设备基本信息
+    public Equipment(EquipmentBasicInfo equipmentBasicInfo) {
+        this.equipmentBasicInfo = equipmentBasicInfo;
+        this.equipmentId = equipmentBasicInfo.getEquipmentId();
+    }
+
+    //构造方法：设备配置信息
     public Equipment(EquipmentSetingInfo equipmentSetingInfo) {
         this.equipmentSetingInfo = equipmentSetingInfo;
         this.equipmentId = equipmentSetingInfo.getEquipmentId();
-//        this.equipmentType = getEquipType(equipmentSetingInfo.getDeviceType());
-//        this.equipmentName = getEquipName(equipmentId);
-//        this.equipmentStatus = getEquipStatus(equipmentSetingInfo.getDeviceType());
     }
+
 
     public int getEquipmentId() {
         return equipmentId;

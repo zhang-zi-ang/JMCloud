@@ -92,7 +92,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
+        super.configure(web);
         // 设置拦截忽略文件夹，可以对静态资源放行
-//        web.ignoring().antMatchers("/static/css/**", "/static/js/**");
+        web.ignoring().antMatchers("/css/**");
+        web.ignoring().antMatchers("/js/**");
+        web.ignoring().antMatchers("/fonts/**");
+        web.ignoring().antMatchers("/custom/**");
+        web.ignoring().antMatchers("/vendor/**");
+        //解决服务注册url被拦截的问题
+//        web.ignoring().antMatchers("/");
+//        web.ignoring().antMatchers("/static/vendor/bootstrap_4.2.1/js/**", "/static/fonts/**");
+//        web.ignoring().antMatchers("/vendor/**", "/fonts/**");
     }
 }

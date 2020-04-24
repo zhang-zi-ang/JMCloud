@@ -10,8 +10,8 @@ import java.sql.Timestamp;
  * @Modified By:
  */
 public class EquipmentShiftInfo {
-    private int equipmentId;//设备ID
-    private Timestamp modifiedTime;//收到报文信息时的时间戳
+    private int equipmentId;                // 设备ID
+    private Timestamp modifiedTime;         // 收到报文信息时的时间戳
 
     private int shiftTimeMin;				/*!< 101		开始分钟	0~23 */
     private int shiftTimeHour;				/*!< 102		开始小时	*/
