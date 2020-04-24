@@ -38,12 +38,12 @@ public class EquipmentSetingInfo {
     private int equipmentId;                    // 设备ID
     private Timestamp modifiedTime;             // 收到配置信息时的时间戳
 
-    private int deviceType;						/*!< 1, 设备类型, 1: 倍捻机 .. */
+    public int deviceType;						/*!< 1, 设备类型, 1: 倍捻机 .. */
     private int opt1;							/*!< 2, Option 1 */
     private int opt2;							/*!< 3, Option 2 */
     private int spindleNum;						/*!< 4, 整机锭数 <1~600> */
     private int spindleType;					/*!< 5, 单锭类型 0：无单锭数据, 1：无锭速，有断纱, 2：有锭速，有断纱 */
-    private int deviceStatus;			        /*!< 6, 机器状态 10:通讯故障 */
+    public int deviceStatus;			        /*!< 6, 机器状态 10:通讯故障 */
     private int faultID;			            /*!< 7, 故障代码 */
     private int taskTime;				    	/*!< 8~9, 任务总时间，单位:S */
     private int remTime;						/*!< 10~11, 任务剩余总时间, 单位:S */

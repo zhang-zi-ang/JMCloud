@@ -71,7 +71,6 @@ public class StatusController {
 
                 //添加到列表中
                 listEquipment.add(equipment);
-
             }
             return listEquipment;
         }

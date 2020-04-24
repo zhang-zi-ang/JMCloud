@@ -165,11 +165,11 @@
 
                         <div class="card-body">
                             <div class="row col-12">
-                                <div class="col-6 col-sm-3 mb-2" ng-repeat="equipment in equipmentCtrl.equipments">
+                                <div class="col-6 col-sm-3 mb-2" ng-repeat="equipment in statusCtrl.equipments">
 
 									<span data-toggle="modal"
                                           data-target="#equipment-info"
-                                          ng-click="equipmentCtrl.ViewEquipment(equipment.equipmentId)"
+                                          ng-click="statusCtrl.ViewEquipment(equipment.equipmentId)"
                                           class="label status-{{equipment.equipmentStatus}}"
                                           style=" width: 100%;display: block;">
 
